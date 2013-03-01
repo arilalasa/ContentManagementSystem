@@ -1,0 +1,28 @@
+{%extends "base.html" %}
+
+{% block title %}Custom Forms{% endblock %}
+{%block content %}
+{{ request.session.username }}
+<button><a href="/auth_logout">logout</a></button>
+
+<button><a href="/CustomForms/">Create Article</a></button>
+<br>
+
+{% if list %}
+<table align='center'>
+    {% for items in list %}
+    <tr>
+        <td>
+            <h4> <a
+                    href="/CustomForms/{{items.id}}/">{{items.id}}-{{items.title}}--{{items.created_at}}--{{items.modified_at}}</a></h4></td>
+        <td>
+            <button><a href="/CustomForms/delete/{{items.id}}">Delete</a></button>
+        </td>
+        
+    </tr>
+    {% endfor%}
+</table>
+{% endif%}
+{% endblock %}
+
+ 

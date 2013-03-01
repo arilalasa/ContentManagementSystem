@@ -1,0 +1,16 @@
+{%extends "base.html" %}
+
+{% block title %}Content Management System{% endblock %}
+{%block content %}
+<h5>helllo  {{request.session.username}}</h5>
+<button><a href="/auth_logout">logout</a></button>
+
+<form action="." method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit"></a></input>
+</form>
+
+{% endblock %}
+
+ 
+
